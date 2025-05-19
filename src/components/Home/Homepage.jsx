@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // import useNavigate
 import './Homepage.css';
 import NavBar from '../NavBar/NavBar';
 
 const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();  // hook to navigate
 
   const handleStartClick = () => {
     setShowModal(true);
@@ -11,6 +13,11 @@ const Homepage = () => {
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const handleReadyClick = () => {
+    setShowModal(false);
+    navigate('/layout-select');  // navigate to LayoutSelect page
   };
 
   return (
@@ -45,7 +52,7 @@ const Homepage = () => {
               <p>📸 The booth will take <strong>4 consecutive photos</strong>, with <strong>3 seconds between</strong> each shot.</p>
               <p>🎭 There are <strong>no retakes</strong>, so strike your best pose each time!</p>
               <p>Once you're done, you can <strong>download your digital copy</strong> and <strong>share the memories</strong> with friends.</p>
-              <button className="ready-btn" onClick={closeModal}>Are you ready?</button>
+              <button className="ready-btn" onClick={handleReadyClick}>Are you ready?</button>
             </div>
           </div>
         )}
