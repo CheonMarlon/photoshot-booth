@@ -1,0 +1,134 @@
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.home-main {
+  height: 100vh;
+  width: 100%;
+  background: url("/assets/pica-wlp.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-nav {
+  position: absolute;
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 35%;
+  height: 50px; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5px; 
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(5px); 
+  z-index: 100;
+}
+
+
+.home-container {
+  text-align: center;
+  color: white;
+  z-index: 1; 
+}
+
+.home-title {
+  position: relative;
+  z-index: 1; 
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.home-title h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+.home-title p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px; 
+  height: auto;
+  transform: translate(-50%, -50%); 
+  z-index: -100;
+  pointer-events: none; 
+}
+
+.ReactModal__Overlay {
+  z-index: 1000 !important; 
+}
+
+
+.start-btn button {
+  --button_radius: 0.75em;
+  --button_color: #e8e8e8;
+  --button_outline_color: #000000;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+  z-index: 100;
+}
+
+.button_top {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+
+  transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+
+  transform: translateY(0);
+}
+
+
+.start-btn button:hover {
+  background-color: #000000;
+}
+
+.home-bg-pics {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  z-index: 0; 
+  transform: rotate(10deg);
+  overflow: clip;
+}
+
+.home-bg-pics img{
+    width: 600px;
+    height: auto;
+}
+
+
