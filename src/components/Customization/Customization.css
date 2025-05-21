@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fff0f5, #ffe6f0);
+}
+
+.customization-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  gap: 60px;
+}
+
+.photo-strip-wrapper {
+  background-color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-frame {
+  background-color: white;
+  border: 4px solid #fff;
+  padding: 5px;
+  width: 100%;
+  aspect-ratio: 3/4;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+
+.timestamp {
+  font-size: 0.75rem;
+  margin-top: 10px;
+  color: #444;
+}
+
+.controls-panel {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section h4 {
+  margin-bottom: 10px;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.custom-button {
+  padding: 8px 16px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.custom-button:hover {
+  background-color: #f0f0f0;
+}
+
+.bottom-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Themes */
+.theme-white .photo-frame { border-color: white; }
+.theme-black .photo-frame { border-color: black; }
+.theme-pink .photo-frame { border-color: pink; }
+.theme-green .photo-frame { border-color: green; }
+.theme-blue .photo-frame { border-color: #87ceeb; }
+.theme-yellow .photo-frame { border-color: #f6e05e; }
+.theme-purple .photo-frame { border-color: #9370db; }
+.theme-maroon .photo-frame { border-color: maroon; }
+.theme-burgundy .photo-frame { border-color: #800020; }
