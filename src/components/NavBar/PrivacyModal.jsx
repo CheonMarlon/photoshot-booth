@@ -7,7 +7,7 @@ const privacySections = [
   {
     title: 'Information We Collect',
     content:
-      'We do not collect any personal information or photos from your device. All photos you take using SnapSpace are processed and stored only on your device and are never uploaded to our servers.'
+      'We do not collect any personal information or photos from your device. All photos you take using PhotoShot are processed and stored only on your device and are never uploaded to our servers.'
   },
   {
     title: 'How We Use Your Information',
@@ -32,7 +32,7 @@ const privacySections = [
   {
     title: 'Contact Us',
     content:
-      'If you have any questions about this Privacy Policy, please contact us at support@snapspace.com.'
+      'If you have any questions about this Privacy Policy, please contact us at support@photoshot.com.'
   }
 ];
 
@@ -65,7 +65,7 @@ const PrivacyModal = ({ isOpen, onRequestClose }) => {
     >
       <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: '#3a3a3a' }}>Privacy Policy</h2>
       <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-        At SnapSpace Photo Booth, your privacy is very important to us. This policy explains how we collect, use, and protect your information when you use our app.
+        At PhotoShot Photo Booth, your privacy is very important to us. This policy explains how we collect, use, and protect your information when you use our app.
       </p>
       <div>
         {privacySections.map(({ title, content }, index) => (
@@ -98,35 +98,35 @@ const PrivacyModal = ({ isOpen, onRequestClose }) => {
           </div>
         ))}
       </div>
-       <button
-            onClick={onRequestClose}
-            style={{
-                display: 'block',
-                margin: '30px auto 0',
-                padding: '10px 25px',
-                backgroundColor: '#ffffff',  // white background
-                color: '#000000',            // black text
-                border: '2px solid #000000', // black border
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontWeight: '600',
-                fontSize: '1rem',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.2)', // subtle shadow
-                transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
-            }}
-            onMouseEnter={e => {
-                e.target.style.backgroundColor = '#000000';
-                e.target.style.color = '#ffffff';
-                e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-            }}
-            onMouseLeave={e => {
-                e.target.style.backgroundColor = '#ffffff';
-                e.target.style.color = '#000000';
-                e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
-            }}
-            >
-            Close
-            </button>
+      <button
+        onClick={onRequestClose}
+        style={{
+          display: 'block',
+          margin: '30px auto 0',
+          padding: '10px 25px',
+          backgroundColor: '#ffffff',
+          color: '#000000',
+          border: '2px solid #000000',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          fontWeight: '600',
+          fontSize: '1rem',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+          transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
+        }}
+        onMouseEnter={e => {
+          e.target.style.backgroundColor = '#000000';
+          e.target.style.color = '#ffffff';
+          e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+        }}
+        onMouseLeave={e => {
+          e.target.style.backgroundColor = '#ffffff';
+          e.target.style.color = '#000000';
+          e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+        }}
+      >
+        Close
+      </button>
     </ReactModal>
   );
 };

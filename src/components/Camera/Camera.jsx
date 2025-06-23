@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Webcam from 'react-webcam';
-import './Camera.css';  
+import './Camera.css';
 
 const layoutToCount = { '4x1': 4, '2x2': 4, '3x2': 6 };
 const PHOTO_INTERVAL = 3000; // 3 seconds
@@ -17,13 +17,19 @@ const Camera = () => {
   const [photos, setPhotos] = useState([]);
   const [takingPhotos, setTakingPhotos] = useState(false);
   const [timer, setTimer] = useState(PHOTO_INTERVAL / 1000);
+  const [showGetReady, setShowGetReady] = useState(true);
 
   useEffect(() => {
     if (!layout) {
-      navigate('/'); // no layout, redirect home
+      navigate('/');
       return;
     }
-    setTakingPhotos(true);
+
+
+    setTimeout(() => {
+      setShowGetReady(false);
+      setTakingPhotos(true);
+    }, 2500); 
   }, [layout, navigate]);
 
   useEffect(() => {
@@ -39,7 +45,6 @@ const Camera = () => {
       setTimer((prev) => (prev > 1 ? prev - 1 : PHOTO_INTERVAL / 1000));
     }, 1000);
 
-    // Take photo after 3 seconds
     const takePhotoTimeout = setTimeout(() => {
       const imageSrc = webcamRef.current.getScreenshot();
       if (imageSrc) setPhotos((prev) => [...prev, imageSrc]);
@@ -58,21 +63,28 @@ const Camera = () => {
     <div className="camera-container">
       {/* Left side: Webcam and Timer */}
       <div className="camera-left">
-        <h2>Taking {count} photos every 3 seconds...</h2>
-        <Webcam
-          audio={false}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width="100%"
-          videoConstraints={{ facingMode: 'user' }}
-          className="camera-webcam"
-        />
-        <p className="camera-timer">
-          Next photo in: <strong>{timer}</strong> second{timer !== 1 ? 's' : ''}
-        </p>
-        <p>
-          Photo {photos.length + 1} of {count}
-        </p>
+
+        {/* Webcam & Overlay Timer */}
+        <div className="camera-webcam-wrapper">
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            videoConstraints={{ facingMode: 'user' }}
+            className="camera-webcam"
+          />
+          <div className="camera-overlay-number">
+            {showGetReady ? (
+              <span className="camera-get-ready">Get Ready...</span>
+            ) : (
+              takingPhotos && (
+                <span key={timer} className="camera-overlay-timer">
+                  {timer}
+                </span>
+              )
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Right side: Thumbnails */}

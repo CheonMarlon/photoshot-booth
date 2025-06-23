@@ -5,28 +5,28 @@ ReactModal.setAppElement('#root');
 
 const faqData = [
   {
-    question: "How does SnapSpace Photo Booth work?",
-    answer: "SnapSpace Photo Booth allows you to capture fun, high-quality photos using your device’s camera. It guides you through taking multiple shots with filters and frames, then compiles them into a shareable photo strip."
+    question: "How does PhotoShot Photo Booth work?",
+    answer: "PhotoShot Photo Booth allows you to capture fun, high-quality photos using your device’s camera. It guides you through taking multiple shots with filters and frames, then compiles them into a shareable photo strip."
   },
   {
     question: "Are my photos stored on your servers?",
     answer: "No, your photos are processed and stored locally on your device only. We do not upload or save any images on our servers to protect your privacy."
   },
   {
-    question: "Can I use SnapSpace on my mobile device?",
-    answer: "Absolutely! SnapSpace is optimized for both desktop and mobile browsers to provide a smooth experience wherever you are."
+    question: "Can I use PhotoShot on my mobile device?",
+    answer: "Absolutely! PhotoShot is optimized for both desktop and mobile browsers to provide a smooth experience wherever you are."
   },
   {
     question: "Why can't I retake individual photos?",
-    answer: "SnapSpace captures a series of photos as a single set to create your photo strip. To maintain the flow and consistency, you need to retake the entire set if you want to change any photo."
+    answer: "PhotoShot captures a series of photos as a single set to create your photo strip. To maintain the flow and consistency, you need to retake the entire set if you want to change any photo."
   },
   {
     question: "What filters and frames are available?",
     answer: "We offer a variety of fun filters like Black & White, Sepia, Vintage, and playful frames including seasonal and themed options that you can apply before taking your photos."
   },
   {
-    question: "Can I use SnapSpace for commercial purposes?",
-    answer: "Yes, SnapSpace can be used for commercial events, but please ensure you comply with local laws and respect privacy guidelines when capturing photos."
+    question: "Can I use PhotoShot for commercial purposes?",
+    answer: "Yes, PhotoShot can be used for commercial events, but please ensure you comply with local laws and respect privacy guidelines when capturing photos."
   },
   {
     question: "My camera isn't working. What should I do?",
@@ -93,35 +93,35 @@ const FAQModal = ({ isOpen, onRequestClose }) => {
           </div>
         ))}
       </div>
-        <button
-            onClick={onRequestClose}
-            style={{
-                display: 'block',
-                margin: '30px auto 0',
-                padding: '10px 25px',
-                backgroundColor: '#ffffff',  // white background
-                color: '#000000',            // black text
-                border: '2px solid #000000', // black border
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontWeight: '600',
-                fontSize: '1rem',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.2)', // subtle shadow
-                transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
-            }}
-            onMouseEnter={e => {
-                e.target.style.backgroundColor = '#000000';
-                e.target.style.color = '#ffffff';
-                e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-            }}
-            onMouseLeave={e => {
-                e.target.style.backgroundColor = '#ffffff';
-                e.target.style.color = '#000000';
-                e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
-            }}
-            >
-            Close
-            </button>
+      <button
+        onClick={onRequestClose}
+        style={{
+          display: 'block',
+          margin: '30px auto 0',
+          padding: '10px 25px',
+          backgroundColor: '#ffffff',
+          color: '#000000',
+          border: '2px solid #000000',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          fontWeight: '600',
+          fontSize: '1rem',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+          transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
+        }}
+        onMouseEnter={e => {
+          e.target.style.backgroundColor = '#000000';
+          e.target.style.color = '#ffffff';
+          e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+        }}
+        onMouseLeave={e => {
+          e.target.style.backgroundColor = '#ffffff';
+          e.target.style.color = '#000000';
+          e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+        }}
+      >
+        Close
+      </button>
     </ReactModal>
   );
 };

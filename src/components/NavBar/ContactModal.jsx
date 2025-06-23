@@ -29,15 +29,6 @@ const ContactModal = ({ isOpen, onRequestClose }) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      alert(`Thank you, ${formData.name}! Your message has been sent.`);
-      setFormData({ name: '', email: '', message: '' });
-      onRequestClose();
-    }
-  };
-
   return (
     <ReactModal
       isOpen={isOpen}
@@ -58,116 +49,61 @@ const ContactModal = ({ isOpen, onRequestClose }) => {
       }}
     >
       <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#222' }}>Contact Us</h2>
-      <form onSubmit={handleSubmit} noValidate>
+      <form
+        action="https://formsubmit.co/marlonpinpin138@gmail.com"
+        method="POST"
+        onSubmit={(e) => {
+          if (!validate()) e.preventDefault();
+        }}
+        target="_blank"
+        noValidate
+      >
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',  // This centers children horizontally
+            alignItems: 'center',
           }}
         >
-          <label
-            style={{
-              display: 'block',
-              marginBottom: '6px',
-              fontWeight: '600',
-              color: '#111',
-              alignSelf: 'flex-start', // label aligns left but input centered
-              width: '60%'
-            }}
-          >
-            Name
-          </label>
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <label style={labelStyle}>Name</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            style={{
-              width: '60%',
-              padding: '10px',
-              marginBottom: errors.name ? '5px' : '20px',
-              border: errors.name ? '2px solid #e74c3c' : '1px solid #ccc',
-              borderRadius: '6px',
-              fontSize: '1rem'
-            }}
+            style={inputStyle(errors.name)}
             placeholder="Your full name"
           />
-          {errors.name && <small style={{ color: '#e74c3c', alignSelf: 'flex-start', width: '60%' }}>{errors.name}</small>}
+          {errors.name && <small style={errorStyle}>{errors.name}</small>}
 
-          <label
-            style={{
-              display: 'block',
-              marginBottom: '6px',
-              fontWeight: '600',
-              color: '#111',
-              alignSelf: 'flex-start',
-              width: '60%'
-            }}
-          >
-            Email
-          </label>
+          <label style={labelStyle}>Email</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            style={{
-              width: '60%',
-              padding: '10px',
-              marginBottom: errors.email ? '5px' : '20px',
-              border: errors.email ? '2px solid #e74c3c' : '1px solid #ccc',
-              borderRadius: '6px',
-              fontSize: '1rem'
-            }}
+            style={inputStyle(errors.email)}
             placeholder="you@example.com"
           />
-          {errors.email && <small style={{ color: '#e74c3c', alignSelf: 'flex-start', width: '60%' }}>{errors.email}</small>}
+          {errors.email && <small style={errorStyle}>{errors.email}</small>}
 
-          <label
-            style={{
-              display: 'block',
-              marginBottom: '6px',
-              fontWeight: '600',
-              color: '#111',
-              alignSelf: 'flex-start',
-              width: '60%'
-            }}
-          >
-            Message
-          </label>
+          <label style={labelStyle}>Message</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows="5"
-            style={{
-              width: '60%',
-              padding: '10px',
-              marginBottom: errors.message ? '5px' : '20px',
-              border: errors.message ? '2px solid #e74c3c' : '1px solid #ccc',
-              borderRadius: '6px',
-              fontSize: '1rem',
-              resize: 'vertical'
-            }}
+            style={textareaStyle(errors.message)}
             placeholder="Write your message here..."
           />
-          {errors.message && <small style={{ color: '#e74c3c', alignSelf: 'flex-start', width: '60%' }}>{errors.message}</small>}
+          {errors.message && <small style={errorStyle}>{errors.message}</small>}
 
           <button
             type="submit"
-            style={{
-              width: '50%',
-              padding: '12px',
-              backgroundColor: '#000',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '6px',
-              fontSize: '1.1rem',
-              fontWeight: '700',
-              cursor: 'pointer',
-              transition: 'background-color 0.3s ease'
-            }}
+            style={submitButtonStyle}
             onMouseEnter={e => (e.target.style.backgroundColor = '#333')}
             onMouseLeave={e => (e.target.style.backgroundColor = '#000')}
           >
@@ -175,6 +111,7 @@ const ContactModal = ({ isOpen, onRequestClose }) => {
           </button>
         </div>
       </form>
+
       <button
         onClick={onRequestClose}
         style={{
@@ -194,6 +131,54 @@ const ContactModal = ({ isOpen, onRequestClose }) => {
       </button>
     </ReactModal>
   );
+};
+
+// Reusable styles
+const labelStyle = {
+  display: 'block',
+  marginBottom: '6px',
+  fontWeight: '600',
+  color: '#111',
+  alignSelf: 'flex-start',
+  width: '60%'
+};
+
+const inputStyle = (hasError) => ({
+  width: '60%',
+  padding: '10px',
+  marginBottom: hasError ? '5px' : '20px',
+  border: hasError ? '2px solid #e74c3c' : '1px solid #ccc',
+  borderRadius: '6px',
+  fontSize: '1rem'
+});
+
+const textareaStyle = (hasError) => ({
+  width: '60%',
+  padding: '10px',
+  marginBottom: hasError ? '5px' : '20px',
+  border: hasError ? '2px solid #e74c3c' : '1px solid #ccc',
+  borderRadius: '6px',
+  fontSize: '1rem',
+  resize: 'vertical'
+});
+
+const errorStyle = {
+  color: '#e74c3c',
+  alignSelf: 'flex-start',
+  width: '60%'
+};
+
+const submitButtonStyle = {
+  width: '50%',
+  padding: '12px',
+  backgroundColor: '#000',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  fontSize: '1.1rem',
+  fontWeight: '700',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s ease'
 };
 
 export default ContactModal;

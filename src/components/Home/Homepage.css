@@ -9,7 +9,7 @@ html, body, #root {
 .home-main {
   height: 100vh;
   width: 100%;
-  background: url("/assets/pica-wlp.jpg") no-repeat center center fixed;
+  background: url("/pbooth.png") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -62,15 +62,15 @@ html, body, #root {
   margin-top: 0.5rem;
 }
 
-.earth {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px; 
-  height: auto;
-  transform: translate(-50%, -50%); 
-  z-index: -100;
-  pointer-events: none; 
+.title-btn {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  border-style: dashed;
+  z-index: 1; 
+  margin-top: 20px;
 }
 
 .ReactModal__Overlay {
@@ -120,15 +120,15 @@ button:active .button_top {
 
 .home-bg-pics {
   position: absolute;
-  bottom: -20%;
+  bottom: -30%;
   right: -10%;
   z-index: 0; 
-  transform: rotate(10deg);
+  transform: rotate(350deg);
   overflow: clip;
 }
 
 .home-bg-pics img{
-    width: 600px;
+    width: 650px;
     height: auto;
 }
 
@@ -190,4 +190,25 @@ button:active .button_top {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.app-footer {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  text-align: center;
+  margin-top: 40px;
+  padding: 16px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.github-link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.github-link:hover {
+  color: #000;
 }

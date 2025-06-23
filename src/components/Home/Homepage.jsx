@@ -28,22 +28,23 @@ const Homepage = () => {
 
       <div className="home-container">
         <div className="home-bg-pics">
-          <img src="/assets/selfie.png" alt="selfie" />
+          <img src="/mera.png" alt="selfie" />
         </div>
 
+      <div className="title-btn">
         <div className="home-title">
-          <h1>SnapSpace</h1>
+          <h1>PhotoShot</h1>
           <p>The fun starts when the flash goes off ⚡</p>
         </div>
 
-        <img className="earth" src="/assets/earth.png" alt='earth' />         
 
         <div className="start-btn">
           <button onClick={handleStartClick}>
             <span className="button_top"> Start Booth </span>
           </button>
         </div>
-
+        </div>
+        
         {showModal && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -57,6 +58,22 @@ const Homepage = () => {
           </div>
         )}
       </div>
+
+      <footer className="app-footer">
+         <p>
+            Built with 💻 by{' '}
+            <a
+              href="https://github.com/CheonMarlon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-link"
+            >
+              <i className="fa-brands fa-github" style={{ marginRight: '6px' }}></i>
+              CheonMarlon
+            </a>
+          </p>
+      </footer>
+
     </div>
   );
 };
